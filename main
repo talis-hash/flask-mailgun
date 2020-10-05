@@ -1,0 +1,42 @@
+from flask import flask, request, jsonify
+from flask_restful import Resource, Api
+
+#def send_simple_message():
+ #request.post("https://api.mailgun.net/v3/lister.ga/messages",
+	#auth=("api","2df1e667b06137d12fccd5e7c938d2fb-cb3791c4-051330e5"),
+ 	#data={"from": "Lister <mailgun@lister.ga.",
+ 			#"to": ["talislister1@gmail.com", "Lister@lister.ga"],
+ 			#"subject": "see if it works",
+ 			#"text": "just testing my mailgun email sending"
+ 	#})
+
+app = flask(__name__)
+api = Api(app)
+
+#class customerInfor(Resource):
+	#def post(self):
+		#customerInfor = request.get_json()
+		#name = customerInfor["name"]
+		#email = customerInfor["email"]
+		#physicalAdress = customerInfor["physicalAdress"]
+		#phoneNumber = int[phoneNumber]
+		#accountNumber = int[accountNumber]
+		
+		#return jsonify(retjson)		
+		#api.add_resource(customerInfor,'/customerInfor')
+class add(Resource):
+ 	def post(self):
+	 	postedData = request.get_json()
+	 	x = postedData["x"]
+	 	y = postedData ["y"]
+	 	x = int("x")
+	 	y = int("y")
+	 	ret = x+y
+	 	reMap = {
+	 	'message' : ret,
+	 	'Status Code' : 200
+	 	}
+	 	return jsonify(retMap)
+api.add_resource(Add,'/add')
+app.run()
+
